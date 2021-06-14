@@ -44,6 +44,7 @@
 		5AF349A726726BD400617648 /* AlegreyaSans-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5AF3499926726BD400617648 /* AlegreyaSans-LightItalic.otf */; };
 		5AF349AA26726C8800617648 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF349A926726C8800617648 /* Card.swift */; };
 		5AF349AD2672749A00617648 /* VideoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF349AC2672749A00617648 /* VideoCard.swift */; };
+		5AF349B02673B19A00617648 /* TableViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF349AF2673B19900617648 /* TableViewConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		5AF3499926726BD400617648 /* AlegreyaSans-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-LightItalic.otf"; sourceTree = "<group>"; };
 		5AF349A926726C8800617648 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5AF349AC2672749A00617648 /* VideoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCard.swift; sourceTree = "<group>"; };
+		5AF349AF2673B19900617648 /* TableViewConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A7DC9D62677A49800650353 /* MusicPlayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MusicPlayer;
+			sourceTree = "<group>";
+		};
 		5AF3494126710CB600617648 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +127,7 @@
 		5AF3494C26710CB600617648 /* Meditiya */ = {
 			isa = PBXGroup;
 			children = (
+				5A7DC9D62677A49800650353 /* MusicPlayer */,
 				5AF349892671325D00617648 /* Home */,
 				5AF3496F2671296B00617648 /* Font */,
 				5AF349692671159000617648 /* DGExtensions.swift */,
@@ -180,6 +190,7 @@
 				5AF3496C26711CF100617648 /* NavigationBar.swift */,
 				5AF349A926726C8800617648 /* Card.swift */,
 				5AF349AC2672749A00617648 /* VideoCard.swift */,
+				5AF349AF2673B19900617648 /* TableViewConfigurator.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -282,6 +293,7 @@
 			files = (
 				5AF3494E26710CB600617648 /* AppDelegate.swift in Sources */,
 				5AF3496726710EF200617648 /* MainView.swift in Sources */,
+				5AF349B02673B19A00617648 /* TableViewConfigurator.swift in Sources */,
 				5AF349AA26726C8800617648 /* Card.swift in Sources */,
 				5AF349AD2672749A00617648 /* VideoCard.swift in Sources */,
 				5AF3496A2671159000617648 /* DGExtensions.swift in Sources */,

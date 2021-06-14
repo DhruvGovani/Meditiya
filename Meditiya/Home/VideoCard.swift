@@ -15,7 +15,7 @@ struct VideoCard: View {
     
     var body: some View {
         ZStack{
-            Color("MainTextColor").cornerRadius(20)
+            Color("MainTextColor").cornerRadius(20).edgesIgnoringSafeArea(.all)
             HStack{
                 VStack{
                     Text(VideoTitle)
@@ -48,13 +48,15 @@ struct VideoCard: View {
                     .aspectRatio(contentMode: .fit)
                     
             }
-        }
+        }.frame(height: 190).onAppear(perform: {
+            UIView().backgroundColor = .clear
+        })
+        .listRowBackground(Color("MainBackground"))
     }
 }
 
 struct VideoCard_Previews: PreviewProvider {
     static var previews: some View {
         VideoCard(VideoTitle: "test", VideoSubtitle: "test", VideoImage: "CardioArt")
-            .preferredColorScheme(.light)
     }
 }

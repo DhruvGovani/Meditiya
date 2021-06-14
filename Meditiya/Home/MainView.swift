@@ -7,7 +7,20 @@
 
 import SwiftUI
 
+struct FeaturedVideo : Identifiable{
+    var videoId : String
+    var Title: String
+    var Subtitle: String
+    var Image: String
+    var id: String {
+        videoId
+    }
+}
+
 struct MainView: View {
+    
+    let featuredVideoList : [FeaturedVideo]
+    
     var body: some View {
         ZStack{
             Color("MainBackground")
@@ -62,7 +75,26 @@ struct MainView: View {
                     
                 }
                 
-                VideoCard(VideoTitle: "Test", VideoSubtitle: "Test", VideoImage: "CardioArt")
+                Group{
+                    
+                    List{
+                        
+                        ForEach(featuredVideoList) { (video) in
+                            VideoCard(VideoTitle: video.Title, VideoSubtitle: video.Subtitle, VideoImage: video.Image)
+                        }
+                        
+                    }
+                    .onAppear() {
+                        
+                        UITableView.appearance().backgroundColor = UIColor.clear
+                        
+                        
+                    }
+                    
+                                       
+                }
+                
+                
                 
              //  Spacer()
 
@@ -73,7 +105,10 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
-            .preferredColorScheme(.light)
+        MainView(featuredVideoList: [
+            FeaturedVideo(videoId: "1", Title: "Test", Subtitle: "Test1", Image: "CardioArt"),
+            FeaturedVideo(videoId: "2", Title: "Test", Subtitle: "Test2", Image: "MeditationArt")
+        ])
+        .preferredColorScheme(.dark)
     }
 }

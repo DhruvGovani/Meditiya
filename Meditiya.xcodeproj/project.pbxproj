@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A7DC9D82677A55D00650353 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DC9D72677A55D00650353 /* MusicPlayerView.swift */; };
+		5A7DC9DB2677AD7700650353 /* MusicProgressLinesBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DC9DA2677AD7700650353 /* MusicProgressLinesBlocks.swift */; };
+		5A7DC9DE2677C95100650353 /* MusicControlPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DC9DD2677C95100650353 /* MusicControlPanel.swift */; };
 		5AF3494E26710CB600617648 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF3494D26710CB600617648 /* AppDelegate.swift */; };
 		5AF3495026710CB600617648 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF3494F26710CB600617648 /* SceneDelegate.swift */; };
 		5AF3495226710CB600617648 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF3495126710CB600617648 /* ContentView.swift */; };
@@ -48,6 +51,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A7DC9D72677A55D00650353 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
+		5A7DC9DA2677AD7700650353 /* MusicProgressLinesBlocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicProgressLinesBlocks.swift; sourceTree = "<group>"; };
+		5A7DC9DD2677C95100650353 /* MusicControlPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicControlPanel.swift; sourceTree = "<group>"; };
 		5AF3494A26710CB600617648 /* Meditiya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meditiya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF3494D26710CB600617648 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AF3494F26710CB600617648 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +110,9 @@
 		5A7DC9D62677A49800650353 /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				5A7DC9D72677A55D00650353 /* MusicPlayerView.swift */,
+				5A7DC9DA2677AD7700650353 /* MusicProgressLinesBlocks.swift */,
+				5A7DC9DD2677C95100650353 /* MusicControlPanel.swift */,
 			);
 			path = MusicPlayer;
 			sourceTree = "<group>";
@@ -292,10 +301,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AF3494E26710CB600617648 /* AppDelegate.swift in Sources */,
+				5A7DC9DB2677AD7700650353 /* MusicProgressLinesBlocks.swift in Sources */,
 				5AF3496726710EF200617648 /* MainView.swift in Sources */,
 				5AF349B02673B19A00617648 /* TableViewConfigurator.swift in Sources */,
+				5A7DC9DE2677C95100650353 /* MusicControlPanel.swift in Sources */,
 				5AF349AA26726C8800617648 /* Card.swift in Sources */,
 				5AF349AD2672749A00617648 /* VideoCard.swift in Sources */,
+				5A7DC9D82677A55D00650353 /* MusicPlayerView.swift in Sources */,
 				5AF3496A2671159000617648 /* DGExtensions.swift in Sources */,
 				5AF3495026710CB600617648 /* SceneDelegate.swift in Sources */,
 				5AF3495226710CB600617648 /* ContentView.swift in Sources */,

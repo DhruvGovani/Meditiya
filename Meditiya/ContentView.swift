@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State var selectedView = 2
+    
     init() {
         UITabBar.appearance().barTintColor = UIColor().Hex(hexString: "#253334")
         UITabBar.appearance().isTranslucent = false
@@ -20,18 +22,40 @@ struct ContentView: View {
     
     var body: some View {
         TabView{
-            MainView(featuredVideoList: [
             
-                FeaturedVideo(videoId: "1", Title: "Meditation 101", Subtitle: "Techniques, Benefits, and a Beginner’s How-To do.", Image: "CardioArt"),
-                FeaturedVideo(videoId: "2", Title: "Cardio", Subtitle: "Basics of Yoga for Beginners or Experienced Professionals", Image: "MeditationArt")
-            
-            ]).tabItem {
+            //FirstTab
+            Group{
+                MainView(featuredVideoList: [
+                    
+                    FeaturedVideo(videoId: "1", Title: "Meditation 101", Subtitle: "Techniques, Benefits, and a Beginner’s How-To do.", Image: "CardioArt"),
+                    FeaturedVideo(videoId: "2", Title: "Cardio", Subtitle: "Basics of Yoga for Beginners or Experienced Professionals", Image: "MeditationArt")
+                    
+                ]).tabItem {
+                    
+                    Color("MainBackground")
+                    Button(action: {
+                        selectedView = 2
+                    }, label: {
+                        Label("", image: "Home")
+                    })
+                    
+                }.ignoresSafeArea().tag(1)
                 
-                Color("MainBackground")
-                Label("", image: "Home")
-                
-            }.ignoresSafeArea()
+            }
             
+            //SecondTab
+            Group{
+                MusicPlayerView().tabItem {
+                    
+                    Color("MainBackground")
+                    Button(action: {
+                        selectedView = 1
+                    }, label: {
+                        Label("", image: "MusicPlayer")
+                    })
+                    
+                }.ignoresSafeArea().tag(2)
+            }
         }.accentColor(Color(.white))
     }
 }

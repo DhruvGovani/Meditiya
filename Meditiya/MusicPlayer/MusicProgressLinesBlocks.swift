@@ -11,6 +11,8 @@ struct MusicProgressLinesBlocks: View {
         
     var spacingBetweenLines : CGFloat
     var lineWidth : CGFloat
+    var totalDuration : Double
+    var ElpasedDuration : Double
     let lineHeightList : [CGFloat] = [
         30,
         50,
@@ -22,8 +24,8 @@ struct MusicProgressLinesBlocks: View {
     func GetColor(index : Int) -> Color {
         
         let totalBars = 41.0
-        let totalDuration = 5.0
-        let progress = 1.2
+        let totalDuration = self.totalDuration
+        let progress = self.ElpasedDuration
         let barsToShow = (progress / totalDuration) * totalBars
         
         if index <= Int(barsToShow){
@@ -85,7 +87,7 @@ struct MusicProgressLinesBlocks: View {
 
 struct MusicProgressLinesBlocks_Previews: PreviewProvider {
     static var previews: some View {
-        MusicProgressLinesBlocks(spacingBetweenLines: 4, lineWidth: 6)
+        MusicProgressLinesBlocks(spacingBetweenLines: 4, lineWidth: 6, totalDuration: 5.0, ElpasedDuration: 2.5)
             .preferredColorScheme(.dark)
     }
 }

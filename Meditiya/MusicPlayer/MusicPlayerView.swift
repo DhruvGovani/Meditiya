@@ -49,7 +49,7 @@ struct MusicPlayerView: View {
                 
                 Group{
                     
-                    MusicProgressLinesBlocks(spacingBetweenLines: 6, lineWidth: 5)
+                    MusicProgressLinesBlocks(spacingBetweenLines: 6, lineWidth: 5, totalDuration: 5.0, ElpasedDuration: 2.5)
                         .frame(width: UIScreen.main.bounds.width, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     
                 }

@@ -56,6 +56,20 @@ struct ContentView: View {
                     
                 }.ignoresSafeArea().tag(2)
             }
+            
+            //Third
+            Group{
+                MyAccount().tabItem {
+                    
+                    Color("MainBackground")
+                    Button(action: {
+                        selectedView = 3
+                    }, label: {
+                        Label("", image: "User")
+                    })
+                    
+                }.ignoresSafeArea().tag(2)
+            }
         }.accentColor(Color(.white))
     }
 }

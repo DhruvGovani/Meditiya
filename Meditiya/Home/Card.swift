@@ -11,6 +11,7 @@ import Foundation
 struct Card: View{
     var imageIcon : String
     
+    @State var ScaleEffectAmount : CGFloat = 1
     
     var body: some View {
         ZStack{
@@ -22,6 +23,17 @@ struct Card: View{
                     .colorInvert()
                     .aspectRatio(contentMode: .fit)
                     .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 14)
+                    .scaleEffect(ScaleEffectAmount)
+                    .gesture(
+                        DragGesture()
+                            .onEnded({ (_) in
+                                ScaleEffectAmount = 1
+                            })
+                            .onChanged({ (_) in
+                                ScaleEffectAmount = 1.2
+                            })
+                    )
+                    .animation(.easeIn(duration: 0.2))
             }
         }
     }

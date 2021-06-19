@@ -21,6 +21,8 @@ struct MainView: View {
     
     let featuredVideoList : [FeaturedVideo]
     
+    @State var ListOpacity : Double = 0
+    
     var body: some View {
         ZStack{
             Color("MainBackground")
@@ -81,6 +83,7 @@ struct MainView: View {
                         
                         ForEach(featuredVideoList) { (video) in
                             VideoCard(VideoTitle: video.Title, VideoSubtitle: video.Subtitle, VideoImage: video.Image)
+                                .opacity(ListOpacity)
                         }
                         
                     }
@@ -88,11 +91,10 @@ struct MainView: View {
                         
                         UITableView.appearance().backgroundColor = UIColor.clear
                         
-                        
                     }
                     
                                        
-                }
+                }.animation(.easeIn(duration: 0.2))
                 
                 
                 
@@ -100,6 +102,11 @@ struct MainView: View {
 
             }
         }.ignoresSafeArea()
+        .onAppear(perform: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                ListOpacity = 1
+            }
+        })
     }
 }
 

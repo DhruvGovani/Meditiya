@@ -81,6 +81,9 @@ struct MusicProgressLinesBlocks: View {
                     .frame(width: lineWidth, height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .foregroundColor(GetColor(index: 41))
             })
+            .animation(
+                Animation.interpolatingSpring(stiffness: 5, damping: 1)
+            )
         }
     }
 }

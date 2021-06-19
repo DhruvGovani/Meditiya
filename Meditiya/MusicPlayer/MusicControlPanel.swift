@@ -13,7 +13,9 @@ struct MusicControlPanel: View {
     @State var ScaleAmount : CGFloat = 1
     @State var OverlayScale : CGFloat = 1
     @State var OverLayOpacity : CGFloat = 0
-
+    
+    var PlayDidTapped : (Bool) -> ()
+    
     var body: some View {
         ZStack{
             Color("MainBackground").ignoresSafeArea()
@@ -46,6 +48,8 @@ struct MusicControlPanel: View {
                     ScaleAmount += 0.3
                     OverlayScale += 0.4
                     OverLayOpacity = 1
+                    PlayDidTapped(isPlaying)
+                   
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         self.ScaleAmount = 1
                     }
@@ -53,6 +57,7 @@ struct MusicControlPanel: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                         OverLayOpacity = 0
                         OverlayScale = 1
+                        
                     }
                     
                 }, label: {
@@ -106,7 +111,9 @@ struct MusicControlPanel: View {
 
 struct MusicControlPanel_Previews: PreviewProvider {
     static var previews: some View {
-        MusicControlPanel()
+        MusicControlPanel(PlayDidTapped: { (_) in
+            
+        })
             .preferredColorScheme(.dark)
     }
 }

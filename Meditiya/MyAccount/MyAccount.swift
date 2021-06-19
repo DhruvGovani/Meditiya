@@ -11,8 +11,8 @@ struct MyAccount: View {
     
     @State var selectedOption : Int = 0
     
-    var UnSelectedColor : Color = Color(UIColor().Hex(hexString: "#3A5051"))
-    var selectedLineColor : Color = Color(UIColor().Hex(hexString: "#95CBCF"))
+    var UnSelectedColor : Color = Color("MainBackground").opacity(0.5)
+    var selectedLineColor : Color = Color("MainBackground")
 
     var body: some View {
         ZStack{

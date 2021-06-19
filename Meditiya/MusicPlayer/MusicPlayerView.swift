@@ -8,6 +8,16 @@
 import SwiftUI
 
 struct MusicPlayerView: View {
+    
+    @State var isPlaying : Bool = true
+    @State var rotationDegree : Double = 0
+    @State var amountOfIncrease: Double = 0.1
+    @State var TotalDuration : Double = 60
+    @State var ElpasedDuration : Double = 0
+    
+    let RotationTimer = Timer.publish(every: 1 / 360, on: .main, in: .common).autoconnect()
+    let MusicDurationTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         ZStack{
             //Main 0 Index Color
@@ -30,6 +40,19 @@ struct MusicPlayerView: View {
                     Image("AlbumArt")
                         .resizable()
                         .frame(width: 250, height: 250, alignment: .center)
+                        .rotationEffect(Angle(degrees: self.rotationDegree))
+                        .animation(
+                            Animation.easeIn(duration: 2)
+                        )
+                        .onReceive(self.RotationTimer) { _ in
+                            if !isPlaying{
+                              //  if rotationDegree < 360{
+                                    self.rotationDegree += self.amountOfIncrease
+                              //  }else{
+                                   // rotationDegree = 0
+                               // }
+                            }
+                        }
                 }
                 
                 Spacer().frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 27, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -49,8 +72,15 @@ struct MusicPlayerView: View {
                 
                 Group{
                     
-                    MusicProgressLinesBlocks(spacingBetweenLines: 6, lineWidth: 5, totalDuration: 5.0, ElpasedDuration: 2.5)
+                    MusicProgressLinesBlocks(spacingBetweenLines: 6, lineWidth: 5, totalDuration: TotalDuration, ElpasedDuration: ElpasedDuration)
                         .frame(width: UIScreen.main.bounds.width, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .onReceive(MusicDurationTimer, perform: { _ in
+                            
+                            if !isPlaying{
+                                ElpasedDuration += 1
+                            }
+                                
+                        })
                     
                 }
                 
@@ -59,7 +89,9 @@ struct MusicPlayerView: View {
                 //ButtonsGroup
                 Group{
                     
-                    MusicControlPanel()
+                    MusicControlPanel { (isPlaying) in
+                        self.isPlaying = isPlaying
+                    }
                     
                 }
                 

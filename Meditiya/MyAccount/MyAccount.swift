@@ -42,11 +42,13 @@ struct MyAccount: View {
                     
                     Text("Dhruv Govani")
                         .font(Font.custom("Alegreya-Bold", size: 35))
+                        .foregroundColor(Color("MainTextColor"))
                     
                     Spacer().frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 3, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     
                     Text("Ahmedabad, Gujrat")
                         .font(Font.custom("Alegreya-Sans", size: 20))
+                        .foregroundColor(Color("MainTextColor"))
                     
                     Spacer().frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 34, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }
@@ -63,6 +65,7 @@ struct MyAccount: View {
                                 Text("STATS")
                                     .accentColor(selectedOption == 0 ? .white : UnSelectedColor)
                                     .font(Font.custom("Alegreya-Sans", fixedSize: 16))
+                                    .foregroundColor(Color("MainTextColor"))
                             }).frame(width: UIScreen.main.bounds.width / 2, height: 31, alignment: .center)
                             
                             Rectangle().frame(width: UIScreen.main.bounds.width / 2, height: 2, alignment: .bottom).foregroundColor(selectedOption == 0 ? selectedLineColor : UnSelectedColor)
@@ -78,6 +81,7 @@ struct MyAccount: View {
                                 Text("ACHIEVEMENTS")
                                     .accentColor(selectedOption == 1 ? .white : UnSelectedColor)
                                     .font(Font.custom("Alegreya-Sans", fixedSize: 16))
+                                    .foregroundColor(Color("MainTextColor"))
                             }).frame(width: UIScreen.main.bounds.width / 2, height: 31, alignment: .center)
                             
                             Rectangle().frame(width: UIScreen.main.bounds.width / 2, height: 2, alignment: .bottom).foregroundColor(selectedOption == 1 ? selectedLineColor : UnSelectedColor)

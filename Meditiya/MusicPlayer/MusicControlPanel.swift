@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct MusicControlPanel: View {
+    
+    @State var isPlaying = true
+    @State var ScaleAmount : CGFloat = 1
+    @State var OverlayScale : CGFloat = 1
+    @State var OverLayOpacity : CGFloat = 0
+
     var body: some View {
         ZStack{
             Color("MainBackground").ignoresSafeArea()
@@ -36,10 +42,40 @@ struct MusicControlPanel: View {
                 
                 Button(action: {
                     
+                    isPlaying.toggle()
+                    ScaleAmount += 0.3
+                    OverlayScale += 0.4
+                    OverLayOpacity = 1
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.ScaleAmount = 1
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        OverLayOpacity = 0
+                        OverlayScale = 1
+                    }
+                    
                 }, label: {
-                    Image("Pause").resizable().frame(width: 75, height: 75, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .accentColor(Color("MainTextColor"))
-                })
+                    
+                    if isPlaying{
+                        Image("PlayButton").resizable().frame(width: 75, height: 75, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .accentColor(Color("MainTextColor"))
+                    }else{
+                        Image("Pause").resizable().frame(width: 75, height: 75, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .accentColor(Color("MainTextColor"))
+                    }
+                    
+                    
+                }).scaleEffect(ScaleAmount)
+                .animation(.easeIn(duration: 0.3), value: ScaleAmount)
+                .clipShape(Circle())
+                .overlay(
+                    Circle()
+                        .stroke(Color("MainTextColor"))
+                        .scaleEffect(OverlayScale)
+                        .animation(.linear(duration: 0.3), value: OverlayScale)
+                        .opacity(Double(OverLayOpacity))
+                )
                 
                 Spacer()
                 

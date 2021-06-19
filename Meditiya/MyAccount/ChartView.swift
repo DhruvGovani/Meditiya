@@ -32,10 +32,12 @@ struct ChartView: View {
                     Spacer().frame(width: 55, height: 1, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     Text("This Week’s Stats")
                         .font(Font.custom("AlegreyaSans-Bold", size: 12))
+                        .foregroundColor(Color("MainTextColor"))
                     Spacer()
                     Text("Show All")
                         .font(Font.custom("AlegreyaSans-Bold", size: 12))
                         .opacity(0.5)
+                        .foregroundColor(Color("MainTextColor"))
                     Spacer().frame(width: 55, height: 1, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }
                 
@@ -50,8 +52,9 @@ struct ChartView: View {
                                 Spacer().frame(width: 55, height: 1, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 Text("\(String(yAxis[i]))")
                                     .font(Font.system(size: 12))
+                                    .foregroundColor(Color("MainTextColor"))
                                 Text("----------------------------------")
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color("MainTextColor"))
                                     .opacity(0.3)
                                     .lineLimit(1)
                                     .truncationMode(.tail)
@@ -70,6 +73,7 @@ struct ChartView: View {
                             Spacer()
                             Text("\(xAxis[j])")
                                 .font(Font.custom("AlegreyaSans-Regular", size: 15))
+                                .foregroundColor(Color("MainTextColor"))
                             Spacer()
                         }
                     }.frame(width: UIScreen.main.bounds.width - 140, height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -102,6 +106,6 @@ struct ChartView: View {
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView().colorScheme(.dark)
+        ChartView().colorScheme(.light)
     }
 }
